@@ -7,13 +7,25 @@ import currency.convertion.Currency;
  */
 public class CentralBankService {
 
+    public static CentralBankService instance;
+
+    private CentralBankService() {
+    }
+
+    public static CentralBankService getInstance() {
+        if (instance == null) {
+            instance = new CentralBankService();
+        }
+        return instance;
+    }
+
     /**
      * Получить текущую ставку для валюты
      *
      * @param currency - валюта
      * @return текущая ставка
      */
-    public static double getCurrentRate(Currency currency) {
+    public double getCurrentRate(Currency currency) {
         double result = 1;
         switch (currency) {
             case USD:

@@ -16,7 +16,7 @@ public class ConvertionTest {
         Currency to = Currency.USD;
         ConvertionRequest request = new ConvertionRequest(from, to, 1, 56.80);
 
-        Money result = ConvertionService.convert(request).getMoney();
+        Money result = ConvertionService.convert(request).getToMoney();
         Assert.assertEquals(1.76, result.getAmount(), 0.1);
     }
 
@@ -26,7 +26,7 @@ public class ConvertionTest {
         Currency to = Currency.RUB;
         ConvertionRequest request = new ConvertionRequest(from, to, 56.80, 1);
 
-        Money result = ConvertionService.convert(request).getMoney();
+        Money result = ConvertionService.convert(request).getToMoney();
         Assert.assertEquals(5680, result.getAmount(), 0.1);
     }
 
@@ -36,7 +36,7 @@ public class ConvertionTest {
         Currency to = Currency.EUR;
         ConvertionRequest request = new ConvertionRequest(from, to, 56.80, 70.53);
 
-        Money result = ConvertionService.convert(request).getMoney();
+        Money result = ConvertionService.convert(request).getToMoney();
         Assert.assertEquals(80.53, result.getAmount(), 0.1);
     }
 }

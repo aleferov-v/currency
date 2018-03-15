@@ -11,6 +11,6 @@ public class ConvertionService {
         double result = (request.getFrom().getAmount() * request.getFromRate()) / request.getToRate();
         Money resultMoney = new Money(request.getTo(), result);
 
-        return new ConvertionResult(resultMoney, new ConvertionStatus(ConvertionStatus.OK, "Операция прошла успешно"));
+        return new ConvertionResult(request.getFrom(), resultMoney, new ConvertionStatus(ConvertionStatus.OK, "Операция прошла успешно"));
     }
 }

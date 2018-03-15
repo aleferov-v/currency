@@ -7,8 +7,17 @@ import java.util.Date;
  */
 public class Person {
 
+    /**
+     * ФИО клиента
+     */
     private String fio;
+    /**
+     * Дата рождения клиента
+     */
     private Date birthday;
+    /**
+     * Удостоверяющий личность документ
+     */
     private DUL document;
 
     public Person(String fio, Date birthday, DUL document) {

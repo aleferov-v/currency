@@ -40,4 +40,8 @@ public class Operator {
         }
         return null;
     }
+
+    public boolean check(Person client) {
+        return client.getDocument() != null;
+    }
 }

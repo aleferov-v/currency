@@ -9,26 +9,36 @@ import currency.convertion.Money;
  */
 public class Printer {
 
-    public static void printOK(ConvertionRequest request, ConvertionResult result) {
-        printOK(request, result, "Обмен валюты произведен успешно.");
+    public void printResult(ConvertionResult convertionResult) {
+        if (convertionResult.getStatus().isOK()) {
+            printOK(convertionResult);
+        } else {
+            printERROR(convertionResult);
+        }
     }
 
-    public static void printOK(ConvertionRequest request, ConvertionResult result, String message) {
-        Money from = request.getFrom();
-        Money to = result.getMoney();
+    private void printOK(ConvertionResult result) {
+        printOK(result, "Обмен валюты произведен успешно.");
+    }
+
+    private void printOK(ConvertionResult result, String message) {
+        Money from = result.getFromMoney();
+        Money to = result.getToMoney();
+
         System.out.println(message);
-        System.out.printf("Получено от клиента: %2f %s%n", from.getAmount(), from.getCurrency());
-        System.out.printf("Отдано клиенту: %2f %s%n", to.getAmount(), to.getCurrency());
+        System.out.printf("Получено от клиента: %.2f %s%n", from.getAmount(), from.getCurrency());
+        System.out.printf("Отдано клиенту: %.2f %s%n", to.getAmount(), to.getCurrency());
     }
 
-    public static void printERROR(ConvertionResult result) {
+    private void printERROR(ConvertionResult result) {
         printERROR(result, "Обмен валюты произвести не удалось.");
     }
 
-    public static void printERROR(ConvertionResult result, String message) {
-        Money to = result.getMoney();
+    private void printERROR(ConvertionResult result, String message) {
+        Money from = result.getFromMoney();
+        Money to = result.getToMoney();
+
         System.out.println(message);
         System.out.printf("Причина: %s%n", result.getStatus().getMessage());
     }
-
 }

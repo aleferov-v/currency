@@ -6,21 +6,30 @@ package currency.convertion;
 public class ConvertionResult {
 
     /**
+     * Деньги в исходной валюте
+     */
+    private Money fromMoney;
+    /**
      * Деньги в целевой валюте
      */
-    private Money money;
+    private Money toMoney;
     /**
      * Статус конвертации
      */
     private ConvertionStatus status;
 
-    public ConvertionResult(Money money, ConvertionStatus status) {
-        this.money = money;
+    public ConvertionResult(Money fromMoney, Money toMoney, ConvertionStatus status) {
+        this.fromMoney = fromMoney;
+        this.toMoney = toMoney;
         this.status = status;
     }
 
-    public Money getMoney() {
-        return money;
+    public Money getFromMoney() {
+        return fromMoney;
+    }
+
+    public Money getToMoney() {
+        return toMoney;
     }
 
     public ConvertionStatus getStatus() {
