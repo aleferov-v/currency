@@ -35,13 +35,29 @@ public class Operator {
      * @return - заявка, если есть возможность ее создания
      */
     public ConvertionRequest createRequest(Person person, Money from, Currency to, double fromRate, double toRate) {
-        if (person.getDocument() != null) {
+        boolean isOK = check(person);
+        if (isOK) {
+            System.out.println("Заявка создана оператором: " + toString());
             return new ConvertionRequest(from, to, fromRate, toRate);
         }
         return null;
     }
 
+    /**
+     * Проверить клиента
+     *
+     * @param client - клиент
+     * @return - результат проверки
+     */
     public boolean check(Person client) {
+        System.out.println("Проверка проводится оператором: " + toString());
         return client.getDocument() != null;
+    }
+
+    @Override
+    public String toString() {
+        return "login='" + login + '\'' +
+                ", vsp='" + vsp + '\'' +
+                '}';
     }
 }
