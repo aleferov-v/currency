@@ -1,0 +1,17 @@
+Section:DUL
+Паспорт
+92 11
+133457
+1973-11-25
+000-110
+
+Section:FIO
+Петров В.С.
+1950-02-14
+
+Section:FROM
+1500
+EUR
+
+Section:TO
+RUB
